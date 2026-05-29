@@ -665,7 +665,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c60f8a56f8e184bafe31018f88a99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  platformPrefab: {fileID: 1090005619573000587, guid: 4da03a2d53544034ebefd162001d118b, type: 3}
+  platformPrefabs:
+  - {fileID: 1090005619573000587, guid: 4da03a2d53544034ebefd162001d118b, type: 3}
+  - {fileID: 398972840142152539, guid: 2d27871ae3ff2ec4d990574d5333fad9, type: 3}
   playerTransform: {fileID: 1958427667}
   numberOfPlatforms: 10
   levelWidth: 6

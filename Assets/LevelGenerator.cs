@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    public GameObject platformPrefab; // —юди перет€гни префаб платформи
+    public GameObject[] platformPrefabs; // —юди перет€гни префаб платформи
     public Transform playerTransform; // —юди перет€гни гравц€
 
     public int numberOfPlatforms = 10; // —к≥льки платформ тримати попереду
@@ -39,6 +39,17 @@ public class LevelGenerator : MonoBehaviour
         spawnPosition.x = transform.position.x + Random.Range(-levelWidth, levelWidth);
         spawnPosition.y = lastSpawnY;
 
-        Instantiate(platformPrefab, spawnPosition, Quaternion.identity);
+        // «ам≥сть Instantiate(platformPrefab, ...) пишемо:
+        int randomIndex = 0; // «а замовчуванн€м беремо звичайну платформу (Element 0)
+
+        // якщо поточна точка спавну по ос≥ Y вища за 20 метр≥в
+        if (spawnPosition.y > 20f)
+        {
+            // “≥льки тод≥ дозвол€Їмо випадковий виб≥р м≥ж звичайною (0) та рухомою (1)
+            randomIndex = Random.Range(0, platformPrefabs.Length);
+        }
+
+        // Ќовий р€док спавну, €кий використовуЇ обраний ≥ндекс:
+        Instantiate(platformPrefabs[randomIndex], spawnPosition, Quaternion.identity);
     }
 }
